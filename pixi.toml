@@ -6,7 +6,18 @@ channels = ["conda-forge"]
 platforms = ["linux-64"]
 
 [tasks]
-process = "python process.py"
+process = { cmd = "python src/01_preprocess.py", inputs = [
+    "images/pattern_raw.tif",
+    "src/01_preprocess.py",
+], outputs = [
+    "images/pattern_cropped.tif",
+] }
+adapt = { cmd = "python src/02_adapt.py", depends-on = [
+    "process",
+], inputs = [
+    "images/pattern_cropped.tif",
+    "src/02_adapt.py",
+] }
 
 [dependencies]
 python = ">=3.12.4,<3.13"
