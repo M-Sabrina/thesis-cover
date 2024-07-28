@@ -1,2 +1,0 @@
-# wusel
-print("WUSEL")
