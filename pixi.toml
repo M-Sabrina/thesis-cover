@@ -17,6 +17,14 @@ adapt = { cmd = "python src/02_adapt.py", depends-on = [
 ], inputs = [
     "images/pattern_cropped.tif",
     "src/02_adapt.py",
+], outputs = [
+    "images/pattern_cropped_adjusted.tif",
+] }
+colorize = { cmd = "python src/03_colorize.py", depends-on = [
+    "adapt",
+], inputs = [
+    "images/pattern_cropped_adjusted.tif",
+    "src/03_colorize.py",
 ] }
 
 [dependencies]
