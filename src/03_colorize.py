@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
-import numpy as np
 import skimage.io as io
 
+plt.rcParams["font.family"] = "IBM Plex Sans"
 pattern_cropped_adjusted = io.imread("images/pattern_cropped_adjusted.tif")
 
 fig, ax = plt.subplots()
@@ -34,32 +34,40 @@ dpi = 1000
 
 ax.imshow(pattern_cropped_adjusted, cmap="viridis", vmin=37.5, vmax=235)
 ax.axis("off")
-fig.savefig(
-    "images/pattern_cropped_adjusted_viridis.png",
-    dpi=dpi,
-    bbox_inches="tight",
-    pad_inches=0,
-)
-ax.imshow(pattern_cropped_adjusted, cmap="viridis", vmin=37.5, vmax=235)
-ax.axis("off")
+# fig.savefig(
+#     "images/pattern_cropped_adjusted_viridis.png",
+#     dpi=dpi,
+#     bbox_inches="tight",
+#     pad_inches=0,
+# )
 
 
 (height, width) = pattern_cropped_adjusted.shape
 ax.text(
-    2 * width // 3 - 600,
+    2 * width // 3 - 450,
     height // 4 + 200,
-    "  Spiraling Towards Understanding\nIn Vitro Min Protein Surface Patterns",
+    "   Spiraling Towards Understanding\nIn Vitro Min Protein Surface Patterns",
     fontsize=6,
     va="top",
     color="white",
 )
 ax.text(
-    2 * width // 3 - 350,
+    2 * width // 3 - 150,
     3 * height // 4,
     "Sabrina C. M. Meindlhumer",
     fontsize=6,
     va="top",
     color="white",
+    style="oblique",
+)
+ax.text(
+    width // 2 - 30,
+    330,
+    "  Spiraling Towards Understanding In Vitro Min Protein Surface Patterns  |  Sabrina C. M. Meindlhumer",
+    fontsize=4.5,
+    va="top",
+    color="white",
+    rotation=90,
 )
 fig.canvas.draw()
 fig.savefig(
