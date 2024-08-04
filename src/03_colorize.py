@@ -44,18 +44,18 @@ ax.axis("off")
 
 (height, width) = pattern_cropped_adjusted.shape
 ax.text(
-    2 * width // 3 - 450,
+    width // 2 + 300,
     height // 4 + 200,
     "   Spiraling Towards Understanding\nIn Vitro Min Protein Surface Patterns",
-    fontsize=6,
+    fontsize=9,
     va="top",
     color="white",
 )
 ax.text(
-    2 * width // 3 - 150,
+    width // 2 + 700,
     3 * height // 4,
     "Sabrina C. M. Meindlhumer",
-    fontsize=6,
+    fontsize=9,
     va="top",
     color="white",
     style="oblique",
