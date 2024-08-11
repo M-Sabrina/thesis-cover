@@ -41,33 +41,36 @@ ax.axis("off")
 #     pad_inches=0,
 # )
 
+# fontcolor = "#ffedd5"
+fontcolor = "white"
 
 (height, width) = pattern_cropped_adjusted.shape
 ax.text(
     width // 2 + 300,
     height // 4 + 200,
-    "   Spiraling Towards Understanding\nIn Vitro Min Protein Surface Patterns",
+    "    Spiraling Towards Understanding\n In Vitro Min Protein Surface Patterns",
     fontsize=9,
     va="top",
-    color="white",
+    color=fontcolor,
 )
 ax.text(
     width // 2 + 700,
     3 * height // 4,
-    "Sabrina C. M. Meindlhumer",
+    " Sabrina C. M. Meindlhumer",
     fontsize=9,
     va="top",
-    color="white",
+    color=fontcolor,
     style="oblique",
 )
 ax.text(
     width // 2 - 30,
-    330,
+    275,
     "  Spiraling Towards Understanding In Vitro Min Protein Surface Patterns  |  Sabrina C. M. Meindlhumer",
-    fontsize=4.5,
+    fontsize=4.3,
     va="top",
-    color="white",
-    rotation=90,
+    color=fontcolor,
+    rotation=270,
+    weight="bold",
 )
 fig.canvas.draw()
 fig.savefig(
