@@ -6,7 +6,7 @@ pattern_cropped_adjusted = io.imread("images/pattern_cropped_adjusted.tif")
 
 fig, ax = plt.subplots()
 
-dpi = 1200
+dpi = 300
 
 # ax.imshow(pattern_cropped_adjusted, cmap="viridis", vmin=0, vmax=255)
 # fig.savefig("images/pattern_cropped_adjusted_viridis_vs1.png", dpi=dpi)
@@ -74,7 +74,7 @@ ax.text(
 )
 fig.canvas.draw()
 fig.savefig(
-    "images/pattern_cropped_adjusted_viridis_annotated.png",
+    f"images/pattern_cropped_adjusted_viridis_annotated_{dpi}dpi.png",
     dpi=dpi,
     bbox_inches="tight",
     pad_inches=0,
