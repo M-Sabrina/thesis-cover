@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 import skimage.io as io
 
@@ -6,7 +8,7 @@ pattern_cropped_adjusted = io.imread("images/pattern_cropped_adjusted.tif")
 
 fig, ax = plt.subplots()
 
-dpi = 300
+dpi = 1200
 
 # ax.imshow(pattern_cropped_adjusted, cmap="viridis", vmin=0, vmax=255)
 # fig.savefig("images/pattern_cropped_adjusted_viridis_vs1.png", dpi=dpi)
@@ -72,10 +74,32 @@ ax.text(
     rotation=270,
     weight="bold",
 )
+
 fig.canvas.draw()
+
+Path.mkdir(f"images/{dpi}dpi", exist_ok=True)
+
 fig.savefig(
-    f"images/pattern_cropped_adjusted_viridis_annotated_{dpi}dpi.png",
+    f"images/{dpi}dpi/pattern_cropped_adjusted_viridis_annotated_{dpi}dpi.png",
     dpi=dpi,
     bbox_inches="tight",
     pad_inches=0,
+)
+fig.savefig(
+    f"images/{dpi}dpi/pattern_cropped_adjusted_viridis_annotated_{dpi}dpi_whitespace.png",
+    dpi=dpi,
+    bbox_inches="tight",
+    pad_inches=0.5,
+)
+fig.savefig(
+    f"images/{dpi}dpi/pattern_cropped_adjusted_viridis_annotated_{dpi}dpi.pdf",
+    dpi=dpi,
+    bbox_inches="tight",
+    pad_inches=0,
+)
+fig.savefig(
+    f"images/{dpi}dpi/pattern_cropped_adjusted_viridis_annotated_{dpi}dpi_whitespace.pdf",
+    dpi=dpi,
+    bbox_inches="tight",
+    pad_inches=0.5,
 )
