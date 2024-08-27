@@ -22,10 +22,7 @@ adapt = { cmd = "python src/02_adapt.py", depends-on = [
 ] }
 colorize = { cmd = "python src/03_colorize.py", depends-on = [
     "adapt",
-], inputs = [
-    "images/pattern_cropped_adjusted.tif",
-    "src/03_colorize.py",
-] }
+]}
 
 [dependencies]
 python = ">=3.12.4,<3.13"

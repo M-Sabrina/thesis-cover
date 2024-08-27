@@ -5,45 +5,17 @@ import skimage.io as io
 
 plt.rcParams["font.family"] = "IBM Plex Sans"
 pattern_cropped_adjusted = io.imread("images/pattern_cropped_adjusted.tif")
-
-fig, ax = plt.subplots()
+cm_to_inches = 0.3937008
+height_cm = 24
+width_cm = 17 * 2 + 1.4
+fig, ax = plt.subplots(figsize=(width_cm * cm_to_inches, height_cm * cm_to_inches))
 
 dpi = 1200
 
-# ax.imshow(pattern_cropped_adjusted, cmap="viridis", vmin=0, vmax=255)
-# fig.savefig("images/pattern_cropped_adjusted_viridis_vs1.png", dpi=dpi)
-
-# ax.imshow(pattern_cropped_adjusted, cmap="viridis", vmin=25, vmax=230)
-# fig.savefig("images/pattern_cropped_adjusted_viridis_vs2.png", dpi=dpi)
-
-# ax.imshow(pattern_cropped_adjusted, cmap="viridis", vmin=50, vmax=230)
-# fig.savefig("images/pattern_cropped_adjusted_viridis_vs3.png", dpi=dpi)
-
-# ax.imshow(pattern_cropped_adjusted, cmap="viridis", vmin=75, vmax=255)
-# fig.savefig("images/pattern_cropped_adjusted_viridis_vs4.png", dpi=dpi)
-
-# ax.imshow(pattern_cropped_adjusted, cmap="viridis", vmin=25, vmax=255)
-# fig.savefig("images/pattern_cropped_adjusted_viridis_vs5.png", dpi=dpi)
-
-# ax.imshow(pattern_cropped_adjusted, cmap="viridis", vmin=0, vmax=235)
-# fig.savefig("images/pattern_cropped_adjusted_viridis_vs6.png", dpi=dpi)
-
-# ax.imshow(pattern_cropped_adjusted, cmap="viridis", vmin=37.5, vmax=230)
-# fig.savefig("images/pattern_cropped_adjusted_viridis_vs7.png", dpi=dpi)
-
-# ax.imshow(pattern_cropped_adjusted, cmap="viridis", vmin=50, vmax=255)
-# fig.savefig("images/pattern_cropped_adjusted_viridis_vs8.png", dpi=dpi)
 
 ax.imshow(pattern_cropped_adjusted, cmap="viridis", vmin=37.5, vmax=235)
 ax.axis("off")
-# fig.savefig(
-#     "images/pattern_cropped_adjusted_viridis.png",
-#     dpi=dpi,
-#     bbox_inches="tight",
-#     pad_inches=0,
-# )
 
-# fontcolor = "#ffedd5"
 fontcolor = "white"
 
 (height, width) = pattern_cropped_adjusted.shape
@@ -77,7 +49,9 @@ ax.text(
 
 fig.canvas.draw()
 
-Path.mkdir(f"images/{dpi}dpi", exist_ok=True)
+Path(f"images/{dpi}dpi").mkdir(exist_ok=True)
+
+whitespace = 0.5 * cm_to_inches
 
 fig.savefig(
     f"images/{dpi}dpi/pattern_cropped_adjusted_viridis_annotated_{dpi}dpi.png",
@@ -89,7 +63,7 @@ fig.savefig(
     f"images/{dpi}dpi/pattern_cropped_adjusted_viridis_annotated_{dpi}dpi_whitespace.png",
     dpi=dpi,
     bbox_inches="tight",
-    pad_inches=0.5,
+    pad_inches=whitespace,
 )
 fig.savefig(
     f"images/{dpi}dpi/pattern_cropped_adjusted_viridis_annotated_{dpi}dpi.pdf",
@@ -101,5 +75,5 @@ fig.savefig(
     f"images/{dpi}dpi/pattern_cropped_adjusted_viridis_annotated_{dpi}dpi_whitespace.pdf",
     dpi=dpi,
     bbox_inches="tight",
-    pad_inches=0.5,
+    pad_inches=whitespace,
 )
