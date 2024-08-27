@@ -19,10 +19,10 @@ fontcolor = "white"
 
 (height, width) = pattern_cropped_adjusted.shape
 ax.text(
-    width // 2 + 300,
+    width // 2 + 280,
     height // 4 + 200,
     "    Spiraling Towards Understanding\n In Vitro Min Protein Surface Patterns",
-    fontsize=20,
+    fontsize=19,
     va="top",
     color=fontcolor,
 )
@@ -30,7 +30,7 @@ ax.text(
     width // 2 + 750,
     3 * height // 4,
     " Sabrina C. M. Meindlhumer",
-    fontsize=19,
+    fontsize=18,
     va="top",
     color=fontcolor,
     style="oblique",
