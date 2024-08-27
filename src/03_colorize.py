@@ -10,8 +10,7 @@ height_cm = 24
 width_cm = 17 * 2 + 1.4
 fig, ax = plt.subplots(figsize=(width_cm * cm_to_inches, height_cm * cm_to_inches))
 
-dpi = 1200
-
+dpi = 600
 
 ax.imshow(pattern_cropped_adjusted, cmap="viridis", vmin=37.5, vmax=235)
 ax.axis("off")
@@ -49,30 +48,19 @@ ax.text(
 
 fig.canvas.draw()
 
-Path(f"images/{dpi}dpi").mkdir(exist_ok=True)
+outpath = Path(f"images/{dpi}dpi")
+Path(outpath).mkdir(exist_ok=True)
 
 whitespace = 0.5 * cm_to_inches
 
 fig.savefig(
-    f"images/{dpi}dpi/pattern_cropped_adjusted_viridis_annotated_{dpi}dpi.png",
+    outpath / f"pattern_cropped_adjusted_viridis_annotated_{dpi}dpi.pdf",
     dpi=dpi,
     bbox_inches="tight",
     pad_inches=0,
 )
 fig.savefig(
-    f"images/{dpi}dpi/pattern_cropped_adjusted_viridis_annotated_{dpi}dpi_whitespace.png",
-    dpi=dpi,
-    bbox_inches="tight",
-    pad_inches=whitespace,
-)
-fig.savefig(
-    f"images/{dpi}dpi/pattern_cropped_adjusted_viridis_annotated_{dpi}dpi.pdf",
-    dpi=dpi,
-    bbox_inches="tight",
-    pad_inches=0,
-)
-fig.savefig(
-    f"images/{dpi}dpi/pattern_cropped_adjusted_viridis_annotated_{dpi}dpi_whitespace.pdf",
+    outpath / f"pattern_cropped_adjusted_viridis_annotated_{dpi}dpi_whitespace.pdf",
     dpi=dpi,
     bbox_inches="tight",
     pad_inches=whitespace,
