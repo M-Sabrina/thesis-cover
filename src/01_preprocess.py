@@ -3,8 +3,8 @@ import numpy as np
 import skimage.io as io
 
 # paper size settings
-height_cm = 24
-width_cm = 17 * 2 + 1
+height_cm = 24.1
+width_cm = 17 * 2 + 1.5
 
 # read in pattern
 pattern_raw = np.rot90(io.imread("images/pattern_raw.tif"))
